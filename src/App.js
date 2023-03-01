@@ -3,8 +3,6 @@ import MainComponents from "./MainComponents";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
-import { FaBars, FaUserCircle, FaAlignLeft } from "react-icons/fa";
-
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
