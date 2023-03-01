@@ -8,7 +8,7 @@ const Dashboard = (props) => {
     <section>
       <div className="sw">
         <Summary data={props.alldata} />
-        <BarChart />
+        {/* <BarChart /> */}
       </div>
     </section>
   );
