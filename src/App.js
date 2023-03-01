@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MainComponents from "./components/MainComponents";
+import MainComponents from "./home/MainComponents";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import { FaBars, FaUserCircle, FaAlignLeft } from "react-icons/fa";

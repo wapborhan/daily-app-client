@@ -2,13 +2,12 @@ import React, { Fragment, Component } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import axios from "axios";
 //  Pages Import
-import Dashboard from "./pages/dashboard/Dashboard";
-import Income from "./pages/income/Income";
-import Expense from "./pages/expense/Expense";
-// import FilteringTable from "./FilteringTable/FilteringTable";
+import Dashboard from "../pages/dashboard/Dashboard";
+import Income from "../pages/income/Income";
+import Expense from "../pages/expense/Expense";
 
 import DATA from "../assets/data/data";
-import NotFound from "./pages/notfound/NotFound";
+import NotFound from "../components/NotFound";
 
 export default class MainComponents extends Component {
   constructor(props) {
