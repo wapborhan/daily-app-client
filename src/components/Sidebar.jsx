@@ -13,7 +13,7 @@ const Sidebar = () => {
     <Fragment>
       <div className="logo-details">
         <ImCoinDollar />
-        <span className="logo_name">SR BUDGET</span>
+        <span className="logo_name">Daily Planner</span>
       </div>
       <ul className="nav-links">
         <li>

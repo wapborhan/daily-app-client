@@ -3,7 +3,7 @@ import BarChart from "./BarChart";
 import Summary from "./Summary";
 
 const Dashboard = (props) => {
-  document.title = "Dashboard - SR Book";
+  document.title = "Daily App";
   return (
     <section>
       <div className="sw">

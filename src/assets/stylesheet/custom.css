@@ -17,3 +17,6 @@
 .sidebars-button {
   transition: all linear 0.3s !important;
 }
+.topbar.navbar-light .navbar-nav .nav-item .nav-link {
+  color: #222222 !important;
+}
