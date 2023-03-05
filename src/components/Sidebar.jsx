@@ -21,7 +21,7 @@ const Sidebar = () => {
             <i className="fas fa-exclamation-triangle text-white">
               <ImStatsBars />
             </i>
-            <span className="links_name">Dashboard</span>
+            <span className="links_name">All task</span>
           </NavLink>
         </li>
         <li>
@@ -29,7 +29,7 @@ const Sidebar = () => {
             <i className="fas fa-exclamation-triangle text-white">
               <ImEnter />
             </i>
-            <span className="links_name">Income</span>
+            <span className="links_name">All Task</span>
           </NavLink>
         </li>
         <li>
@@ -37,7 +37,7 @@ const Sidebar = () => {
             <i className="fas fa-exclamation-triangle text-white">
               <ImExit />
             </i>
-            <span className="links_name">Expense</span>
+            <span className="links_name">Calender</span>
           </NavLink>
         </li>
 

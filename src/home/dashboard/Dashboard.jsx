@@ -1,14 +1,12 @@
 import React from "react";
-import BarChart from "./BarChart";
-import Summary from "./Summary";
+import Task from "../../pages/task/Task";
 
 const Dashboard = (props) => {
   document.title = "Daily App";
   return (
     <section>
-      <div className="sw">
-        <Summary data={props.alldata} />
-        {/* <BarChart /> */}
+      <div className="dashboards">
+        <Task />
       </div>
     </section>
   );
