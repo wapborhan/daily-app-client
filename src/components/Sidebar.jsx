@@ -21,7 +21,7 @@ const Sidebar = () => {
             <i className="fas fa-exclamation-triangle text-white">
               <ImStatsBars />
             </i>
-            <span className="links_name">All task</span>
+            <span className="links_name">Dashboard</span>
           </NavLink>
         </li>
         <li>
