@@ -9,8 +9,14 @@ export const COLUMNS = [
   //   //disableFilters: true,
   // },
   {
-    Header: "তারিখ",
-    Footer: "তারিখ",
+    Header: "ID",
+    Footer: "ID",
+    accessor: "id",
+    Filter: ColumnFilter,
+  },
+  {
+    Header: "Date",
+    Footer: "Date",
     accessor: "idate",
     Cell: ({ value }) => {
       return format(new Date(value), "dd/mm/yyyy");
@@ -18,15 +24,21 @@ export const COLUMNS = [
     Filter: ColumnFilter,
   },
   {
-    Header: "বিবরণী",
-    Footer: "বিবরণী",
+    Header: "Task",
+    Footer: "task",
     accessor: "idesc",
     Filter: ColumnFilter,
   },
   {
-    Header: "পরিমান",
-    Footer: "পরিমান",
+    Header: "Status",
+    Footer: "Status",
     accessor: "iamm",
+    Filter: ColumnFilter,
+  },
+  {
+    Header: "Priority",
+    Footer: "Priority",
+    accessor: "",
     Filter: ColumnFilter,
   },
 ];
