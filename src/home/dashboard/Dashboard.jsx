@@ -1,12 +1,12 @@
 import React from "react";
-import Task from "../../pages/task/Task";
+import TaskDash from "../../pages/task/TaskDash";
 
 const Dashboard = (props) => {
   document.title = "Daily App";
   return (
     <section>
       <div className="dashboards">
-        <Task />
+        <TaskDash />
       </div>
     </section>
   );

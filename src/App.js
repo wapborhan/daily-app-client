@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 //  Pages Import
 import Dashboard from "./home/dashboard/Dashboard";
-import Income from "./pages/income/Income";
+import Income from "./pages/task/Task";
 import Expense from "./pages/expense/Expense";
 //
 import DATA from "./assets/data/data";
@@ -47,11 +47,11 @@ function App() {
                   exact
                   element={<Income data={data.incomeDetails} />}
                 />
-                <Route
+                {/* <Route
                   path="/expense"
                   exact
                   element={<Expense data={data.expenseDetails} />}
-                />
+                /> */}
                 <Route path="*" exact element={<NotFound />} />
               </Routes>
             </div>
