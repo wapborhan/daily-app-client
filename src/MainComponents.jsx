@@ -21,9 +21,11 @@ export default class MainComponents extends Component {
     return (
       <Fragment>
         <div className="container-fluid topbarpt">
-          <Routes baseline="/income-expense-react">
+          <Routes
+          // baseline="/income-expense-react"
+          >
             <Route
-              path="/income-expense-react"
+              path="/"
               exact
               element={<Dashboard alldata={this.state.data} />}
             />
