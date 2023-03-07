@@ -25,7 +25,7 @@ const Sidebar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/income">
+          <NavLink to="/task">
             <i className="fas fa-exclamation-triangle text-white">
               <ImEnter />
             </i>
