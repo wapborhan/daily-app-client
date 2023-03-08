@@ -25,7 +25,7 @@ const TaskDash = () => {
             <div className="col-md-4">
               <Card className="my-2">
                 <CardHeader>{item.title}</CardHeader>
-                <CardBody>{item.taskam} 17.32 % vs. previous month</CardBody>
+                <CardBody>{item.taskam} </CardBody>
               </Card>
             </div>
           );
