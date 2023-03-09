@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from "react";
+import { NavLink, Routes, Route } from "react-router-dom";
 
 import AddTask from "./AddTask";
 import TaskDash from "./TaskDash";
@@ -17,7 +18,9 @@ export default class Income extends Component {
           <div className="card-header">
             <h4 className="card-title d-flex justify-content-between">
               <span>All Task</span>{" "}
-              <button className="btn btn-success">+ Add task</button>
+              <NavLink to="/add-task">
+                <button className="btn btn-success">+ Add task</button>
+              </NavLink>
             </h4>
           </div>
           <TaskList data={this.props.data} />

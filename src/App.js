@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 //  Pages Import
+import { routers } from "./components/routes";
 import Dashboard from "./home/dashboard/Dashboard";
-import Income from "./pages/task/Task";
+import Task from "./pages/task/Task";
 import Expense from "./pages/expense/Expense";
 //
 import DATA from "./assets/data/data";
@@ -11,6 +12,7 @@ import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import { BrowserRouter } from "react-router-dom";
+import AddTask from "./pages/task/AddTask";
 
 function App() {
   const [isActive, setActive] = useState("false");
@@ -37,15 +39,29 @@ function App() {
               <Routes
               // baseline="/income-expense-react"
               >
+                {/* {routers.map((data, i) => (
+                  <Route
+                    key={i}
+                    exact
+                    path={`/${data.path}`}
+                    // element={data.element}
+                    element={data.element}
+                  />
+                ))} */}
                 <Route path="/" exact element={<Dashboard alldata={data} />} />
-                <Route
+                {/* <Route
                   path="/"
                   element={<Navigate replace to="/income-expense-react" />}
-                />
+                /> */}
                 <Route
-                  path="/task"
+                  path="/task/*"
                   exact
-                  element={<Income data={data.incomeDetails} />}
+                  element={<Task data={data.incomeDetails} />}
+                />{" "}
+                <Route
+                  path="/add-task"
+                  exact
+                  element={<AddTask data={data.incomeDetails} />}
                 />
                 {/* <Route
                   path="/expense"
