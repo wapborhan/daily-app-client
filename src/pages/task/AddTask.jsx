@@ -5,8 +5,11 @@ export default class AddTask extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      indescval: "",
-      inammval: "",
+      date: "",
+      status: "",
+      priority: "",
+      taskTitle: "",
+      taskDesc: "",
       isSubmitDisabled: true,
     };
 
@@ -27,9 +30,14 @@ export default class AddTask extends Component {
   }
 
   canSubmit() {
-    const { indescval, inammval } = this.state;
+    const { taskTitle, taskDesc, status, priority } = this.state;
     // If Input Value is blank Button are Disable
-    if (indescval.length > 0 && inammval.length > 0) {
+    if (
+      taskTitle.length > 0 &&
+      taskDesc.length > 0 &&
+      status.length > 0 &&
+      priority.length > 0
+    ) {
       this.setState({
         isSubmitDisabled: false,
       });
@@ -43,17 +51,21 @@ export default class AddTask extends Component {
   handleSubmit = (event) => {
     // get our const values by destructuring state
     event.preventDefault();
-    const { indescval, inammval } = this.state;
+    const { taskTitle, taskDesc, status, priority } = this.state;
     // regular javascript alert function
     alert(`Your type detail: \n 
-           Desc: ${indescval} \n 
-           Amount: ${inammval} \n
+           Title: ${taskTitle} \n 
+           Description: ${taskDesc} \n
+           Status: ${status} \n
+           Priority: ${priority} \n
            `);
   };
   render() {
     const d = new Date();
     const month = d.getMonth() + 1;
     const time = d.getDate() + "/" + month + "/" + d.getFullYear();
+
+    console.log(this.state);
     return (
       <div className="form">
         <Card>
@@ -65,16 +77,24 @@ export default class AddTask extends Component {
                   <input type="text" placeholder={time} disabled />
                 </div>
                 <div className="col-md-4">
-                  <select class="form-select align-self-baseline">
-                    <option selected>Status</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                  <select
+                    class="form-select align-self-baseline"
+                    onChange={this.handleChange}
+                    name="status"
+                  >
+                    <option value="">Status</option>
+                    <option value="One">One</option>
+                    <option value="two">Two</option>
+                    <option value="Three">Three</option>
                   </select>
                 </div>
                 <div className="col-md-4">
-                  <select class="form-select align-self-baseline">
-                    <option selected>Priority</option>
+                  <select
+                    class="form-select align-self-baseline"
+                    onChange={this.handleChange}
+                    name="priority"
+                  >
+                    <option value="">Priority</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
@@ -87,9 +107,9 @@ export default class AddTask extends Component {
                     className="mb-2"
                     id="income-detail"
                     type="text"
-                    placeholder="আয়ের বিবরণ"
-                    name="indescval"
-                    value={this.state.indescval}
+                    placeholder="Title"
+                    name="taskTitle"
+                    value={this.state.taskTitle}
                     onChange={this.handleChange}
                     required
                   />
@@ -98,10 +118,10 @@ export default class AddTask extends Component {
                   <input
                     className="mb-2"
                     id="incamount"
-                    type="number"
-                    placeholder="পরিমান"
-                    name="inammval"
-                    value={this.state.inammval}
+                    type="text"
+                    placeholder="Description"
+                    name="taskDesc"
+                    value={this.state.taskDesc}
                     onChange={this.handleChange}
                     required
                   />
