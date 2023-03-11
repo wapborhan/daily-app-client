@@ -20,3 +20,15 @@
 .topbar.navbar-light .navbar-nav .nav-item .nav-link {
   color: #222222 !important;
 }
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #0d6efd !important;
+  border-radius: 5px;
+}
+input:disabled {
+  background-color: #e0e0e0;
+  color: red;
+}

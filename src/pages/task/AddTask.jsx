@@ -76,6 +76,35 @@ export default class AddTask extends Component {
                 <div className="col-md-4">
                   <input type="text" placeholder={time} disabled />
                 </div>
+                <div className="col-md-8">
+                  <input
+                    className="mb-2"
+                    id="income-detail"
+                    type="text"
+                    placeholder="Title"
+                    name="taskTitle"
+                    value={this.state.taskTitle}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <textarea
+                    className="mb-2 form-control"
+                    rows="3"
+                    id="incamount"
+                    type="text"
+                    placeholder="Description"
+                    name="taskDesc"
+                    value={this.state.taskDesc}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="row">
                 <div className="col-md-4">
                   <select
                     class="form-select align-self-baseline"
@@ -100,33 +129,7 @@ export default class AddTask extends Component {
                     <option value="3">Three</option>
                   </select>
                 </div>
-              </div>
-              <div className="row">
-                <div className="col-md-6">
-                  <input
-                    className="mb-2"
-                    id="income-detail"
-                    type="text"
-                    placeholder="Title"
-                    name="taskTitle"
-                    value={this.state.taskTitle}
-                    onChange={this.handleChange}
-                    required
-                  />
-                </div>
-                <div className="col-md-3">
-                  <input
-                    className="mb-2"
-                    id="incamount"
-                    type="text"
-                    placeholder="Description"
-                    name="taskDesc"
-                    value={this.state.taskDesc}
-                    onChange={this.handleChange}
-                    required
-                  />
-                </div>
-                <div className="col-md-3">
+                <div className="col-md-4">
                   <button
                     className="btn btn-success"
                     id="income-btn"
