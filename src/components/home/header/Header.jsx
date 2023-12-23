@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
+  const { user } = useAuth();
   return (
     <nav className="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top">
       <div className="container">
@@ -67,7 +69,11 @@ const Header = () => {
         </div>
         <div className="account">
           <div className="btn btn-success">
-            <NavLink to="/signin">Log In</NavLink>
+            {user?.email ? (
+              <NavLink to="/dashboard/home">DashBoard</NavLink>
+            ) : (
+              <NavLink to="/signin">Log In</NavLink>
+            )}
           </div>
         </div>
       </div>

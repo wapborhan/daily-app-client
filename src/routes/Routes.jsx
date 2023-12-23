@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import Root from "../layout/Root";
 import HomePage from "../components/home/HomePage";
 import Dashboard from "../components/pages/dashboard/Dashboard";
+import AddTask from "../components/pages/task/AddTask";
+import Task from "../components/pages/task/Task";
+import Root from "../layout/Root";
 import SignIn from "../layout/auth/SignIn";
 import SignUp from "../layout/auth/SignUp";
 
@@ -19,7 +21,7 @@ export const router = createBrowserRouter([
     element: <SignUp />,
   },
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: <Root />,
     children: [
       {
@@ -27,8 +29,12 @@ export const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "task",
-        element: <Dashboard />,
+        path: "task/all",
+        element: <Task />,
+      },
+      {
+        path: "task/add",
+        element: <AddTask />,
       },
     ],
   },

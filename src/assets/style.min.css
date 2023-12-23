@@ -26136,10 +26136,10 @@ body.rtl_mode .offcanvas.offcanvas-end {
   border-left-color: var(--primary-color)
 }
 
-.card .card-header {
+/* .card .card-header {
   background-color: transparent;
   border-bottom: none
-}
+} */
 
 
 

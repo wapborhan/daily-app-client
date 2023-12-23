@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const SideBar = () => {
   return (
     <div className="sidebar px-4 py-4 py-md-5 me-0">
       <div className="d-flex flex-column h-100">
-        <a href="index.html" className="mb-0 brand-icon">
+        <Link to="/" className="mb-0 brand-icon">
           <span className="logo-icon">
             <svg
               width="35"
@@ -21,8 +21,8 @@ const SideBar = () => {
               <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
             </svg>
           </span>
-          <span className="logo-text">My-Task</span>
-        </a>
+          <span className="logo-text">SR Daily App</span>
+        </Link>
         {/* <!-- Menu: main ul --> */}
 
         <ul className="menu-list flex-grow-1 mt-3">
@@ -41,7 +41,7 @@ const SideBar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/task" className="m-link ">
+            <NavLink to="/dashboard/task/all" className="m-link ">
               <i className="icofont-paint"></i> <span>Tasks</span>
             </NavLink>
           </li>
