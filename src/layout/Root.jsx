@@ -9,7 +9,9 @@ const Root = () => {
       <div className="main px-lg-4 px-md-4">
         <Header />
         <div className="body d-flex py-3">
-          <Outlet />
+          <div className="container-xxl">
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>

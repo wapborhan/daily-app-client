@@ -25825,6 +25825,21 @@ body.rtl_mode .offcanvas.offcanvas-end {
   z-index: 9
 }
 
+.dd-item:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  left: 0px;
+  bottom: 0px;
+  z-index: 9
+}
+
+
+.dd-item:before {
+  background-color: #ffc107;
+}
+
 @media only screen and (max-width: 1366px) {
 
   .taskboard .dd-item,

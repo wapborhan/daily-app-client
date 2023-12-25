@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DndContext } from "@dnd-kit/core";
+import Taskcard from "./TaskCard";
 
 import DraggableTask from "./DraggableTask";
 import DroppableTask from "./DroppableTask";
@@ -62,10 +63,10 @@ const Task = () => {
       <div className="containers">
         {lists.map((item) => (
           <DroppableTask key={item.id} id={item.type}>
-            <h1>{item.listName}</h1>
+            <h3 className="mb-3">{item.listName}</h3>
             {getTasks(item).map((task) => (
               <DraggableTask key={task.id} id={task.id}>
-                {task.name}
+                <Taskcard task={task} />
               </DraggableTask>
             ))}
           </DroppableTask>

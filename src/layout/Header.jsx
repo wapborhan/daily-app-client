@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -81,12 +81,13 @@ const Header = () => {
                     </div>
                   </div>
                   <div className="list-group m-2 ">
-                    <a
-                      href="/"
+                    <Link
+                      to="/dashboard/task/my"
+                      onClick={toggle}
                       className="list-group-item list-group-item-action border-0 "
                     >
                       <i className="icofont-tasks fs-5 me-3"></i>My Task
-                    </a>
+                    </Link>
                     <a
                       href="/"
                       className="list-group-item list-group-item-action border-0 "

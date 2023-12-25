@@ -42,7 +42,12 @@ const SideBar = () => {
           </li>
           <li>
             <NavLink to="/dashboard/task/all" className="m-link ">
-              <i className="icofont-paint"></i> <span>Tasks</span>
+              <i className="icofont-paint"></i> <span>All Tasks</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/task/my" className="m-link ">
+              <i className="icofont-paint"></i> <span>My Tasks</span>
             </NavLink>
           </li>
         </ul>
