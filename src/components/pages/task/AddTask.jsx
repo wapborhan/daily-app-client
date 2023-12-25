@@ -1,7 +1,11 @@
-import { useForm, Controller, useFieldArray } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
+
 const AddTask = () => {
+  const { user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -13,8 +17,8 @@ const AddTask = () => {
 
   const onSubmitAddMeal = (data) => {
     const inputData = {
-      // distributor_name: user?.displayName,
-
+      name: user?.displayName,
+      email: user?.email,
       ...data,
     };
 
@@ -30,26 +34,33 @@ const AddTask = () => {
   return (
     <div className="form mb-5">
       <div className="container">
-        <header className="header">
-          <h1 id="title" className="text-center mb-5">
-            Add Task
-          </h1>
-        </header>
         <div className="form-wrap">
           <form id="survey-form">
             <div className="row">
+              <header className="header">
+                <h1 id="title" className="text-center mb-5">
+                  Add Task
+                </h1>
+              </header>
               <div className="col-md-6">
                 <div className="form-group">
                   <label id="name-label" htmlFor="date">
                     Date
                   </label>
-                  <input
-                    type="text"
-                    {...register("date")}
-                    className="form-control"
+                  <Controller
+                    control={control}
+                    name="date"
                     defaultValue={new Date()}
-                    disabled
-                    required
+                    render={({ field: { onChange, onBlur, value, ref } }) => (
+                      <ReactDatePicker
+                        showIcon
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        selected={value}
+                        className="form-control"
+                        disabled
+                      />
+                    )}
                   />
                 </div>
               </div>
@@ -75,31 +86,41 @@ const AddTask = () => {
                   <label id="number-label" htmlFor="number">
                     Deadline <small>(optional)</small>
                   </label>
-                  <input
-                    type="date"
-                    {...register("deadline", { required: true })}
-                    className="form-control"
+                  <Controller
+                    control={control}
+                    name="deadline"
+                    className="d-flex align-items-center"
+                    render={({ field: { onChange, onBlur, value, ref } }) => (
+                      <ReactDatePicker
+                        showIcon
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        selected={value}
+                        className="form-control"
+                      />
+                    )}
                   />
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="form-group">
-                  <label>current role</label>
-                  <select
-                    id="dropdown"
-                    name="role"
-                    className="form-control"
-                    required
-                  >
-                    <option disabled selected value>
-                      Select
-                    </option>
-                    <option value="student">Student</option>
-                    <option value="job">Full Time Job</option>
-                    <option value="learner">Full Time Learner</option>
-                    <option value="preferNo">Prefer not to say</option>
-                    <option value="other">Other</option>
-                  </select>
+                  <label>Priority</label>
+                  <Controller
+                    name="priority"
+                    control={control}
+                    defaultValue="" // Set default value if needed
+                    rules={{ required: "This field is required" }} // Add validation rules if needed
+                    render={({ field }) => (
+                      <select {...field} className="form-control">
+                        <option value="" disabled hidden>
+                          Priority
+                        </option>
+                        <option value="low">Low</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="high">High</option>
+                      </select>
+                    )}
+                  />
                 </div>
               </div>
             </div>
@@ -107,11 +128,10 @@ const AddTask = () => {
             <div className="row">
               <div className="col-md-12">
                 <div className="form-group">
-                  <label>Leave Message</label>
+                  <label>Description</label>
                   <textarea
-                    id="comments"
                     className="form-control"
-                    name="comment"
+                    {...register("description", { required: true })}
                     placeholder="Enter your comment here..."
                   ></textarea>
                 </div>
@@ -124,9 +144,9 @@ const AddTask = () => {
                   type="submit"
                   id="submit"
                   onClick={handleSubmit(onSubmitAddMeal)}
-                  className="btn btn-primary btn-block"
+                  className="btn btn-primary w-full"
                 >
-                  Submit Survey
+                  Add Task
                 </button>
               </div>
             </div>

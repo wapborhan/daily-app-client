@@ -26168,7 +26168,7 @@ body.rtl_mode .offcanvas.offcanvas-end {
   margin: 0 auto;
   position: absolute;
   top: -30px;
-  background: #00bcd9;
+  background: #4c3575;
   z-index: -1;
   opacity: 0.8;
   -webkit-border-radius: 10px;
@@ -26196,7 +26196,8 @@ body.rtl_mode .offcanvas.offcanvas-end {
 
 .form-control {
   height: 50px;
-  background: #ecf0f4;
+  background: #4c3575;
+  color: white;
   border-color: transparent;
   padding: 0 15px;
   font-size: 16px;
@@ -26204,6 +26205,16 @@ body.rtl_mode .offcanvas.offcanvas-end {
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+.form-control:disabled {
+  background: #4c3575;
+  color: white;
+}
+
+.form-control:disabled svg {
+  background: #4c3575;
+  color: white;
 }
 
 .form-control:focus {
@@ -26214,7 +26225,7 @@ body.rtl_mode .offcanvas.offcanvas-end {
 }
 
 textarea.form-control {
-  height: 160px;
+  height: 100px;
   padding-top: 15px;
   resize: none;
 }
@@ -26268,4 +26279,11 @@ textarea.form-control {
   -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, .1);
   -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, .1);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, .1);
+}
+
+.react-datepicker__input-container {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
