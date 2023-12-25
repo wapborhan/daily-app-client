@@ -3,9 +3,11 @@ import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const AddTask = () => {
   const { user } = useAuth();
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -19,17 +21,17 @@ const AddTask = () => {
     const inputData = {
       name: user?.displayName,
       email: user?.email,
+      type: "start",
       ...data,
     };
 
     console.log(inputData);
 
-    // axios.post("/menu", inputData).then((res) => {
-    //   if (res.status === 200) {
-    //     reset();
-
-    //   }
-    // });
+    axiosPublic.post("/task", inputData).then((res) => {
+      if (res.status === 200) {
+        reset();
+      }
+    });
   };
   return (
     <div className="form mb-5">
@@ -84,7 +86,7 @@ const AddTask = () => {
               <div className="col-md-6">
                 <div className="form-group">
                   <label id="number-label" htmlFor="number">
-                    Deadline <small>(optional)</small>
+                    Deadline
                   </label>
                   <Controller
                     control={control}
@@ -97,6 +99,7 @@ const AddTask = () => {
                         onBlur={onBlur}
                         selected={value}
                         className="form-control"
+                        placeholderText={"Deadline"}
                       />
                     )}
                   />
