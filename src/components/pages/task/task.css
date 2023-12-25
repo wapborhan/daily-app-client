@@ -1,0 +1,25 @@
+.containers {
+  display: flex;
+}
+
+.draggable-item {
+  padding: 8px 16px;
+  margin-bottom: 8px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.draggable-item:hover {
+  background-color: #ccc;
+}
+
+.droppable-container {
+  padding: 0 8px 8px 8px;
+  margin: 0 8px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  min-height: 100px;
+  min-width: 300px;
+}

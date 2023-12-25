@@ -1,79 +1,132 @@
+import { useForm, Controller, useFieldArray } from "react-hook-form";
+import useAuth from "../../../hooks/useAuth";
+import axios from "axios";
 const AddTask = () => {
-  const handleSubmit = () => {};
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+
+    formState: { errors },
+  } = useForm();
+
+  const onSubmitAddMeal = (data) => {
+    const inputData = {
+      // distributor_name: user?.displayName,
+
+      ...data,
+    };
+
+    console.log(inputData);
+
+    // axios.post("/menu", inputData).then((res) => {
+    //   if (res.status === 200) {
+    //     reset();
+
+    //   }
+    // });
+  };
   return (
-    <div className="form">
-      <div className="card">
-        <div className="card-header">Add Task</div>
-        <div className="card-body">
-          <form onSubmit={handleSubmit}>
-            <div className="row  mb-3">
-              <div className="col-md-4">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder={new Date()}
-                  disabled
-                />
+    <div className="form mb-5">
+      <div className="container">
+        <header className="header">
+          <h1 id="title" className="text-center mb-5">
+            Add Task
+          </h1>
+        </header>
+        <div className="form-wrap">
+          <form id="survey-form">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="form-group">
+                  <label id="name-label" htmlFor="date">
+                    Date
+                  </label>
+                  <input
+                    type="text"
+                    {...register("date")}
+                    className="form-control"
+                    defaultValue={new Date()}
+                    disabled
+                    required
+                  />
+                </div>
               </div>
-              <div className="col-md-8">
-                <input
-                  className="mb-2 form-control"
-                  id="income-detail"
-                  type="text"
-                  placeholder="Title"
-                  name="taskTitle"
-                  required
-                />
+              <div className="col-md-6">
+                <div className="form-group">
+                  <label id="email-label" htmlFor="title">
+                    Title
+                  </label>
+                  <input
+                    type="text"
+                    {...register("title", { required: true })}
+                    placeholder="Enter your email"
+                    className="form-control"
+                    required
+                  />
+                </div>
               </div>
             </div>
+
+            <div className="row">
+              <div className="col-md-6">
+                <div className="form-group">
+                  <label id="number-label" htmlFor="number">
+                    Deadline <small>(optional)</small>
+                  </label>
+                  <input
+                    type="date"
+                    {...register("deadline", { required: true })}
+                    className="form-control"
+                  />
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="form-group">
+                  <label>current role</label>
+                  <select
+                    id="dropdown"
+                    name="role"
+                    className="form-control"
+                    required
+                  >
+                    <option disabled selected value>
+                      Select
+                    </option>
+                    <option value="student">Student</option>
+                    <option value="job">Full Time Job</option>
+                    <option value="learner">Full Time Learner</option>
+                    <option value="preferNo">Prefer not to say</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
             <div className="row">
               <div className="col-md-12">
-                <textarea
-                  className="mb-2 form-control"
-                  rows="3"
-                  id="incamount"
-                  type="text"
-                  placeholder="Description"
-                  name="taskDesc"
-                  required
-                />
+                <div className="form-group">
+                  <label>Leave Message</label>
+                  <textarea
+                    id="comments"
+                    className="form-control"
+                    name="comment"
+                    placeholder="Enter your comment here..."
+                  ></textarea>
+                </div>
               </div>
             </div>
+
             <div className="row">
               <div className="col-md-4">
-                <select
-                  className="form-select align-self-baseline "
-                  name="status"
-                >
-                  <option selected disabled>
-                    Status
-                  </option>
-                  <option value="One">One</option>
-                  <option value="two">Two</option>
-                  <option value="Three">Three</option>
-                </select>
-              </div>
-              <div className="col-md-4">
-                <select
-                  className="form-select align-self-baseline"
-                  name="priority"
-                >
-                  <option selected disabled>
-                    Priority
-                  </option>
-                  <option value="One">One</option>
-                  <option value="Two">Two</option>
-                  <option value="Three">Three</option>
-                </select>
-              </div>
-              <div className="col-md-4">
                 <button
-                  className="btn btn-success"
-                  id="income-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#incomemodal"
+                  type="submit"
+                  id="submit"
+                  onClick={handleSubmit(onSubmitAddMeal)}
+                  className="btn btn-primary btn-block"
                 >
-                  Add Task
+                  Submit Survey
                 </button>
               </div>
             </div>
